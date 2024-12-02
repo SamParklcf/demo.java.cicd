@@ -59,8 +59,9 @@ jobs:
     - name: Install GitVersion
       run: |
           wget -q -O gitversion.tar.gz https://github.com/GitTools/GitVersion/releases/download/6.0.5/gitversion-linux-x64-6.0.5.tar.gz
-          tar -xzf gitversion.tar.gz
-          sudo mv ./GitVersion /usr/local/bin/gitversion
+          mkdir gitversion_extracted
+          tar -xzf gitversion.tar.gz -C gitversion_extracted
+          sudo mv gitversion_extracted/*/gitversion /usr/local/bin/gitversion
           sudo chmod +x /usr/local/bin/gitversion
           
     - name: Setup Gradle
