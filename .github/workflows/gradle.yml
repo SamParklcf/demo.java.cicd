@@ -92,6 +92,9 @@ jobs:
       with:
        gradle-version: '8.11.1'
 
+    - name: Setup Gradle Wrapper
+      run: ./gradlew wrapper --gradle-version 8.11.1
+
     # Generates and submits a dependency graph, enabling Dependabot Alerts for all project dependencies.
     # See: https://github.com/gradle/actions/blob/main/dependency-submission/README.md
     - name: Generate and submit dependency graph
