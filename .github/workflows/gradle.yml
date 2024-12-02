@@ -57,7 +57,7 @@ jobs:
     #
 
     - name: Install GitVersion
-        run: |
+      run: |
           wget -q -O gitversion.tar.gz https://github.com/GitTools/GitVersion/releases/download/6.0.5/gitversion-linux-x64-6.0.5.tar.gz
           tar -xzf gitversion.tar.gz
           sudo mv ./GitVersion /usr/local/bin/gitversion
