@@ -2,7 +2,7 @@ import groovy.json.JsonSlurper
 
 plugins {
     id("java-library")
-    id ("maven-publish")
+    id("maven-publish")
 }
 
 repositories {
@@ -72,6 +72,16 @@ publishing {
             groupId = "com.example"
             artifactId = "demo"
             version = project.version as String
+        }
+    }
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/octocat/hello-world")
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
         }
     }
 }
