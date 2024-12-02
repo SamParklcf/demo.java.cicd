@@ -2,6 +2,11 @@ import groovy.json.JsonSlurper
 
 plugins {
     id("java-library")
+    id ("maven-publish")
+}
+
+repositories {
+    mavenCentral()
 }
 
 group = "demo.java"
@@ -51,10 +56,6 @@ tasks.named("build") {
 
 version = project.version
 
-repositories {
-    mavenCentral()
-}
-
 dependencies {
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
@@ -62,4 +63,25 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("mavenJava") {
+            from(components["java"])
+            groupId = "com.example"
+            artifactId = "demo"
+            version = project.version as String
+        }
+    }
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/OWNER/REPOSITORY")
+            credentials {
+                username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
+                password = project.findProperty("gpr.token") as String? ?: System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
 }
