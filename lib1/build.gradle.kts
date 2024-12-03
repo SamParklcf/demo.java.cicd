@@ -64,17 +64,3 @@ dependencies {
 tasks.test {
     useJUnitPlatform()
 }
-
-publishing {
-    publications {
-        create<MavenPublication>("mavenJava") {
-            from(components["java"])
-        }
-    }
-    repositories {
-        maven {
-            name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/SamParklcf/demo.java.cicd")
-        }
-    }
-}
