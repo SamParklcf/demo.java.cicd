@@ -28,8 +28,6 @@ jobs:
       with:
         java-version: '23'
         distribution: 'oracle'
-        server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
-        settings-path: ${{ github.workspace }} # location for the settings.xml file
 
     - name: Checkout
       uses: actions/checkout@v4
@@ -52,11 +50,6 @@ jobs:
     #
     - name: Build with Gradle 8.11.1
       run: gradle build
-
-    - name: Publish package
-      run: ./gradlew publish --info
-      env:
-        GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 
   dependency-submission:
 
