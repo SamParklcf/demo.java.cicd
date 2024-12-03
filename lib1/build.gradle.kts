@@ -27,7 +27,7 @@ tasks.register("parseGitVersion") {
         val jsonSlurper = JsonSlurper()
         val gitVersionFile = file(gitVersionJsonFilePath)
         val gitVersion = jsonSlurper.parse(gitVersionFile) as Map<*, *>
-        project.version = gitVersion["SemVer"] as String
+        project.version = gitVersion["SemVer"].toString()
         println("---> Project version set to: ${project.version}")
     }
 }
@@ -57,8 +57,9 @@ tasks.named("build") {
 version = project.version
 
 dependencies {
-    testImplementation(platform("org.junit:junit-bom:5.10.0"))
+    testImplementation(platform("org.junit:junit-bom:5.11.3"))
     testImplementation("org.junit.jupiter:junit-jupiter")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
 tasks.test {
