@@ -78,10 +78,6 @@ publishing {
         maven {
             name = "GitHubPackages"
             url = uri("https://maven.pkg.github.com/SamParklcf/demo.java.cicd")
-            credentials {
-                username = System.getenv("GITHUB_ACTOR")
-                password = System.getenv("PERSONAL_ACCESS_TOKEN")
-            }
         }
     }
 }
