@@ -10,7 +10,6 @@ repositories {
 }
 
 group = "demo.java"
-version = "0.1.0-SNAPSHOT"
 
 val gitVersionJsonFilePath = "../gitversion.json"
 
@@ -69,9 +68,9 @@ publishing {
     publications {
         create<MavenPublication>("mavenJava") {
             from(components["java"])
-            groupId = "demo.java"
-            artifactId = "demo"
-            version = project.version as String
+            groupId = group.toString()
+            artifactId = "demo.java.cicd"
+            version = project.version.toString()
         }
     }
     repositories {
