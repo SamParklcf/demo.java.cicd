@@ -67,7 +67,6 @@ jobs:
     - name: Publish package
       run: ./gradlew publish --info
       env:
-        USERNAME: ${{ github.actor }}
         GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 
   dependency-submission:
