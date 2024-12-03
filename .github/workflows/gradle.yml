@@ -65,7 +65,7 @@ jobs:
       run: gradle build
 
     - name: Publish package
-      run: ./gradlew publish --debug
+      run: ./gradlew publish --info
       env:
         USERNAME: ${{ github.actor }}
         GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
