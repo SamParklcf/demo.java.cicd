@@ -1,5 +1,5 @@
 public class feature1 {
-    public void function1(){
-
+    public int function1(){
+        return 1;
     }
 }
