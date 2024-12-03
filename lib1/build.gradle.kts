@@ -10,6 +10,7 @@ repositories {
 }
 
 group = "demo.java"
+version = "0.1.0-SNAPSHOT"
 
 val gitVersionJsonFilePath = "../gitversion.json"
 
