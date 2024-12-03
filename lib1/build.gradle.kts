@@ -2,7 +2,6 @@ import groovy.json.JsonSlurper
 
 plugins {
     id("java-library")
-    id("maven-publish")
 }
 
 repositories {
