@@ -35,17 +35,6 @@ jobs:
       uses: actions/checkout@v4
       with:
         fetch-depth: 0
-        
-    #- name: Install GitVersion
-    #  uses: gittools/actions/gitversion/setup@v3.0.3
-    #  with:
-    #    versionSpec: '6.x'
-
-    #- name: Determine Version
-    #  uses: gittools/actions/gitversion/execute@v3.0.3
-    #  with:
-    #    useConfigFile: true
-    #    arguments: '/showConfig'
 
     - name: Install GitVersion for Gradle
       run: |
@@ -65,7 +54,7 @@ jobs:
       run: gradle build
 
     - name: Publish package
-      run: ./gradlew publish --info
+      run: mvn --batch-mode deploy
       env:
         GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 
