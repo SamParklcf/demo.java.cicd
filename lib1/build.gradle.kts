@@ -1,7 +1,8 @@
 import groovy.json.JsonSlurper
 
 plugins {
-    id("java-library")
+    `java-library`
+    `jvm-test-suite`
 }
 
 repositories {
@@ -62,18 +63,4 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
-}
-
-publishing {
-    publications {
-        create<MavenPublication>("mavenJava") {
-            from(components["java"])
-        }
-    }
-    repositories {
-        maven {
-            name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/SamParklcf/demo.java.cicd")
-        }
-    }
 }
